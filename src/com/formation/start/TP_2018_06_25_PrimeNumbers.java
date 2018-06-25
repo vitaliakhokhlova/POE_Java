@@ -1,17 +1,28 @@
 package com.formation.start;
 
 import java.util.ArrayList;
+import java.util.List;
+import static java.util.Arrays.*;
+import java.util.LinkedList;
 
 public class TP_2018_06_25_PrimeNumbers {
 
 	public static void main(String[] args) {
-		int[] x = { 1, 2, 3, 4, 0, 6, 7, 8, -2 };
-		ArrayList<Integer> list = new ArrayList<>();
-		list = getPrimeNumbers(x);
-		System.out.println(list);
+		int[] x = {10,2,5 };
+		List<Integer> list =  new LinkedList<Integer>(asList(3,2,7));
+
+		//list = getPrimeNumbers(x);
+		//System.out.println(list);
+        int i=0;
+		//while(i<10) System.out.println(++i);
+        int n=5;
+        System.out.println(n+"!="+factorial(n));
+        int [] list2=new int[]{3,2,7};
+        int m=multiplication(list);
+        System.out.println(m);
 	}
 
-	public static ArrayList<Integer> getPrimeNumbers(int[] numbers) {
+	public static ArrayList<Integer> getPrimeNumbers(ArrayList<Integer> numbers) {
 
 		ArrayList<Integer> list = new ArrayList<>();
 		for (int n : numbers)
@@ -33,4 +44,25 @@ public class TP_2018_06_25_PrimeNumbers {
 
 		return true;
 	}
+
+	public static int factorial(int n){
+	    if (n==0||n==1) return 1;
+	    else return n*factorial(n-1);
+    }
+
+    public static int multiplication (List<Integer> numbers){
+	   if (numbers.size()==1) return numbers.get(0);
+	   else {
+          	       return numbers.get(numbers.size()-1)*multiplication(numbers.subList(0,numbers.size()-1));
+	   }
+       }
+
+
+    //prof
+    /*public static int multiplication (int[] tab, int n){
+        if (n==1) return tab[0];
+        else {
+            return tab[n-1]*multiplication(tab, n-1);
+        }
+    }*/
 }
