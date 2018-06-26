@@ -3,13 +3,13 @@ package com.formation.start;
 import java.util.ArrayList;
 import java.util.List;
 import static java.util.Arrays.*;
-import java.util.LinkedList;
+
 
 public class TP_2018_06_25_PrimeNumbers {
 
 	public static void main(String[] args) {
 		int[] x = {10,2,5 };
-		List<Integer> list =  new LinkedList<Integer>(asList(3,2,7));
+		ArrayList<Integer> list =  new ArrayList<>(asList(3,2,7));
 
 		//list = getPrimeNumbers(x);
 		//System.out.println(list);
