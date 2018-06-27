@@ -2,8 +2,6 @@ package com.formation.start;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
-
 
 public class Cours_2018_06_26 {
     public static void main(String[] args) {
@@ -27,6 +25,8 @@ public class Cours_2018_06_26 {
 
         System.out.println(inverserInt(list));
         System.out.println(list);
+
+
 }
 
 public static int somme(ArrayList<Integer> list){
@@ -93,5 +93,7 @@ public static int somme(ArrayList<Integer> list){
         }
         return list;
     }
+
+
 
 }
