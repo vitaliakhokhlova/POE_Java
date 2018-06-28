@@ -1,4 +1,4 @@
-package com.formation.start;
+package com.formation.start.bank;
 
 import java.util.ArrayList;
 
@@ -14,6 +14,10 @@ public class Client {
         this.id = ++compteur;
         this.setFirstName(firstName);
         this.setLastName(lastName);
+    }
+
+    public static int getCompteur(){
+        return compteur;
     }
 
     public int getId() {

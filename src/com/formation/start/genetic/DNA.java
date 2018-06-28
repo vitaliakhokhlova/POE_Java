@@ -12,7 +12,7 @@ public class DNA {
 
     public DNA(String strand){
         for(char c : strand.toCharArray()) {
-            this.strand.add( new Nucleobase(c));
+            this.strand.add(new Nucleobase(c));
             if (c == 'U'){
                 System.out.println("Error: 'U' can not be in DNA");
             }
@@ -37,8 +37,11 @@ public class DNA {
 
     @Override
     public String toString() {
-        return "DNA{" +
-                "strand='" + strand + '\'' +
-                '}';
+        String s = "";
+        for(Nucleobase n : strand){
+            s += n.getSymbol();
+        }
+
+        return s;
     }
 }

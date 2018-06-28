@@ -1,8 +1,8 @@
-package com.formation.start;
+package com.formation.start.voitures;
 
 import java.util.Scanner;
 
-public class TP_2018_06_21_Voitures {
+public class Main {
 
 	public static void main(String[] args) {
 

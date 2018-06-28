@@ -1,4 +1,4 @@
-package com.formation.start;
+package com.formation.start.geometry;
 
 import java.util.Objects;
 

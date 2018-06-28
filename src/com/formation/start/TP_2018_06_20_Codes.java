@@ -2,7 +2,7 @@ package com.formation.start;
 
 import java.util.Scanner;
 
-public class Codes {
+public class TP_2018_06_20_Codes {
 
 	public static void main(String[] args) {
 		
@@ -20,7 +20,7 @@ public class Codes {
 		else if (codePays.equals("ES")) pays = "Spain";
 		else pays="le code n'est pas dans le tableau";*/
 		
-		// même chose en utilisant le switch
+		// mï¿½me chose en utilisant le switch
 		switch (codePays) 
 		{
 			case "UK": pays="United Kindom"; break;
@@ -31,7 +31,7 @@ public class Codes {
 			default: pays="le code n'est pas dans le tableau";
 		}
 		
-		System.out.println("Le code "+codePays+" correspond à: "+pays);
+		System.out.println("Le code "+codePays+" correspond ï¿½: "+pays);
 		
 		scanner.close();
 

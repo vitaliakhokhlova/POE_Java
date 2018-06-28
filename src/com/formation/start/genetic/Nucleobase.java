@@ -25,7 +25,9 @@ public class Nucleobase {
     @Override
     public String toString() {
         return "Nucleobase{" +
-                "symbol=" + getSymbol() +
+                "symbol=" + symbol +
+                ", name=" + getName() +
+                ", family=" + getFamily() +
                 '}';
     }
 

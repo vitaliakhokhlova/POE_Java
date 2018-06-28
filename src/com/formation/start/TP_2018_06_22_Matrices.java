@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Matrices {
+public class TP_2018_06_22_Matrices {
 
 	public static void main(String[] args) {
 		int[][] a = { { 1, 2, 3 }, { 4, 0, 0, }, };
@@ -17,9 +17,9 @@ public class Matrices {
 		l.add(12.20f);
 
 		for (int i = 0; i < l.size(); i++)
-			System.out.println("Élément à l'index " + i + " = " + l.get(i));
+			System.out.println("ï¿½lï¿½ment ï¿½ l'index " + i + " = " + l.get(i));
 
-		System.out.println("\n \tParcours avec un itérateur ");
+		System.out.println("\n \tParcours avec un itï¿½rateur ");
 		System.out.println("-----------------------------------");
 		ListIterator li = l.listIterator();
 

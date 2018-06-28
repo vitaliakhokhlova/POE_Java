@@ -1,13 +1,13 @@
-package com.formation.start;
+package com.formation.start.calendrier;
 
-public class TP_2018_06_21_Calendrier 
+public class Main
 {
 	private static int rememberLastDay=0;
 	public static void main(String[] args) 
 	{
 	System.out.println("Calendrier");
 	
-	for(Mois m : Mois.values()) 
+	for(Mois m : Mois.values())
 	{
 		Integer compteur=1;
 		System.out.println(m);

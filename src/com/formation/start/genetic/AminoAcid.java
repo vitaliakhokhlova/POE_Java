@@ -25,8 +25,6 @@ public class AminoAcid {
 
     @Override
     public String toString() {
-        return "AminoAcid{" +
-                "symbol=" + symbol +
-                '}';
+        return getName();
     }
 }

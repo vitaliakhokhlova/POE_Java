@@ -1,4 +1,4 @@
-package com.formation.start;
+package com.formation.start.calendrier;
 
 public enum Semaine {
 	

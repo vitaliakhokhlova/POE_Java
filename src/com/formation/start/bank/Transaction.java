@@ -1,4 +1,6 @@
-package com.formation.start;
+package com.formation.start.bank;
+
+import com.formation.start.bank.Account;
 
 import java.util.Date;
 

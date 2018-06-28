@@ -1,4 +1,6 @@
-package com.formation.start;
+package com.formation.start.geometry;
+
+import com.formation.start.geometry.Point;
 
 public class Rectangle {
 
