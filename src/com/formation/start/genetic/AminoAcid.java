@@ -1,7 +1,6 @@
 package com.formation.start.genetic;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 public class AminoAcid {
 

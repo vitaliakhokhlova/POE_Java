@@ -9,6 +9,9 @@ public class Nucleobase {
     private ArrayList<Character> symbolList = new ArrayList<Character>(Arrays.asList('A','C','T','G','U'));
     private ArrayList<String> nameList = new ArrayList<String>(Arrays.asList("Adenine","Cytosine","Thymine","Guanine","Uracil"));
 
+    public Nucleobase(){
+    }
+
     public Nucleobase(Character symbol){
         symbol = Character.toUpperCase(symbol);
         if(symbolList.contains(symbol)){
@@ -49,17 +52,15 @@ public class Nucleobase {
         return family;
     }
 
-
-    public char getComplementary(boolean RNA) {
-        char complementary = ' ';
+    public Nucleobase getComplementary(boolean RNA) {
+        Nucleobase complementary;
         if(RNA && (symbol=='A')){
-            complementary = 'U';
+            complementary = new Nucleobase('U');
         }
         else {
-            complementary = symbolList.get((symbolList.indexOf(symbol) + 2) % 4);
+            complementary = new Nucleobase(symbolList.get((symbolList.indexOf(symbol) + 2) % 4));
         }
         return  complementary;
     }
-
 
 }

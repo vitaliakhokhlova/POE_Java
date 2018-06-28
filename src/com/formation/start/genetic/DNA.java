@@ -9,24 +9,27 @@ public class DNA {
     private ArrayList<Nucleobase> strand = new ArrayList<>();
 
     public DNA(String strand){
-        for(int i=0; i < strand.length(); i++) {
-            Nucleobase nucleobase = new Nucleobase(strand.charAt(i));
+        for(char c : strand.toCharArray()) {
+            Nucleobase nucleobase = new Nucleobase(c);
             this.strand.add(nucleobase);
+            if (c == 'U'){
+                System.out.println("Error: 'U' can not be in DNA");
+            }
         }
     }
 
-    public String getComplementary(){
-        String complementary = "";
+    public ArrayList<Nucleobase> getComplementary(){
+        ArrayList<Nucleobase> complementary = new ArrayList<>();
         for(Nucleobase n : strand){
-            complementary += n.getComplementary(false);
+            complementary.add(n.getComplementary(false));
         }
         return complementary;
     }
 
-    public String getTranscription(){
-        String transcription = "";
+    public ArrayList<Nucleobase> getTranscription(){
+        ArrayList<Nucleobase> transcription = new ArrayList<>();
         for(Nucleobase n : strand){
-            transcription += n.getComplementary(true);
+            transcription.add(n.getComplementary(true));
         }
         return transcription;
     }

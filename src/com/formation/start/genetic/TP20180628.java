@@ -12,8 +12,8 @@ public class TP20180628 {
         System.out.println(dna.getComplementary());
         System.out.println(dna.getTranscription());
 
-        RNA rna = new RNA(dna.getTranscription());
-        System.out.println(rna);
-        System.out.println(rna.translate());
+       RNA rna = new RNA(dna.getTranscription());
+       System.out.println(rna);
+       System.out.println(rna.translate());
     }
 }
