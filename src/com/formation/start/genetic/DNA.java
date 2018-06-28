@@ -8,30 +8,31 @@ public class DNA {
 
     private ArrayList<Nucleobase> strand = new ArrayList<>();
 
+    public DNA(){};
+
     public DNA(String strand){
         for(char c : strand.toCharArray()) {
-            Nucleobase nucleobase = new Nucleobase(c);
-            this.strand.add(nucleobase);
+            this.strand.add( new Nucleobase(c));
             if (c == 'U'){
                 System.out.println("Error: 'U' can not be in DNA");
             }
         }
     }
 
-    public ArrayList<Nucleobase> getComplementary(){
-        ArrayList<Nucleobase> complementary = new ArrayList<>();
+    public DNA getComplementary(){
+        DNA dna = new DNA();
         for(Nucleobase n : strand){
-            complementary.add(n.getComplementary(false));
+            dna.strand.add(n.getComplementary(false));
         }
-        return complementary;
+        return dna;
     }
 
-    public ArrayList<Nucleobase> getTranscription(){
-        ArrayList<Nucleobase> transcription = new ArrayList<>();
+    public RNA getTranscription(){
+        RNA rna = new RNA();
         for(Nucleobase n : strand){
-            transcription.add(n.getComplementary(true));
+            rna.setStrand(n.getComplementary(true));
         }
-        return transcription;
+        return rna;
     }
 
     @Override

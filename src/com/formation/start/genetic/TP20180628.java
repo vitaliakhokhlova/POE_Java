@@ -9,11 +9,12 @@ public class TP20180628 {
 
         DNA dna = new DNA("AGTCGTAAA");
         System.out.println(dna);
-        System.out.println(dna.getComplementary());
-        System.out.println(dna.getTranscription());
+        DNA sdna = dna.getComplementary();
+        System.out.println(sdna);
 
-       RNA rna = new RNA(dna.getTranscription());
+       RNA rna = dna.getTranscription();
        System.out.println(rna);
        System.out.println(rna.translate());
+       System.out.println(rna.codonList());
     }
 }

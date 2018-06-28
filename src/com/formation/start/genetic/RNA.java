@@ -16,10 +16,11 @@ public class RNA {
         codonMap.put("UUU", 'F');
     }
 
+    public RNA(){};
+
     public RNA(String strand) {
-        for (int i = 0; i < strand.length(); i++) {
-            Nucleobase nucleobase = new Nucleobase(strand.charAt(i));
-            this.strand.add(nucleobase);
+        for (char c : strand.toCharArray()) {
+            this.strand.add(new Nucleobase(c));
         }
     }
 
@@ -31,15 +32,18 @@ public class RNA {
 
     @Override
     public String toString() {
-        return "RNA{" +
-                "strand='" + strand + '\'' +
-                '}';
+        String s = "";
+        for(Nucleobase n : strand){
+            s += n.getSymbol();
+        }
+
+        return s;
     }
 
     public ArrayList<AminoAcid> translate() {
         ArrayList<AminoAcid> aminoAcidsList = new ArrayList<>();
-        ArrayList<String> codonList = this.codonList();
-        for (String c : codonList) {
+
+        for (String c : this.codonList()) {
             aminoAcidsList.add(translateCodon(c));
         }
         return aminoAcidsList;
@@ -49,16 +53,18 @@ public class RNA {
         ArrayList<String> codonList = new ArrayList<>();
 
         for (int i = 0; i < strand.size(); i += 3) {
-            String codon = "";
-            for(int j = i; j<i+3; j++){
-                codon += strand.get(j).getSymbol();
+            if(i+3 <= strand.size()) {
+                codonList.add(this.toString().substring(i, i + 3));
             }
-            codonList.add(codon);
         }
         return codonList;
     }
 
     public AminoAcid translateCodon(String codon) {
         return new AminoAcid(codonMap.get(codon));
+    }
+
+    public void setStrand(Nucleobase n) {
+        strand.add(n);
     }
 }
