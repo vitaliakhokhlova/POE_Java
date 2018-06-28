@@ -16,7 +16,7 @@ public class AminoAcid {
             this.symbol =symbol;
         }
         else{
-            System.out.println("Error: No nucleobase with this symbol");
+            System.out.println("Error: No aminoacid with this symbol");
         }
     }
 
