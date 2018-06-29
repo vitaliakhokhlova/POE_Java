@@ -4,44 +4,31 @@ import com.formation.start.genetic.Nucleobase;
 
 import java.util.ArrayList;
 
-public class DNA {
+public class DNA extends NucleicAcid {
 
-    private ArrayList<Nucleobase> strand = new ArrayList<>();
-
-    public DNA(){};
+    public DNA(){}
 
     public DNA(String strand){
-        for(char c : strand.toCharArray()) {
-            this.strand.add(new Nucleobase(c));
-            if (c == 'U'){
-                System.out.println("Error: 'U' can not be in DNA");
-            }
+        super(strand);
+        if (strand.contains("U")){
+            System.out.println("Error: 'U' can not be in DNA");
         }
+    }
+
+    public DNA(NucleicAcid nucleicAcid){
+        this.setStrand(nucleicAcid.getStrand());
     }
 
     public DNA getComplementary(){
-        DNA dna = new DNA();
-        for(Nucleobase n : strand){
-            dna.strand.add(n.getComplementary(false));
-        }
-        return dna;
+        NucleicAcid na = new NucleicAcid();
+        na.setStrand(this.getStrand());
+        NucleicAcid cna = na.getComplementary(false);
+        return new DNA(cna);
+
     }
 
-    public RNA getTranscription(){
-        RNA rna = new RNA();
-        for(Nucleobase n : strand){
-            rna.setStrand(n.getComplementary(true));
-        }
-        return rna;
+    public RNA transcipt(){
+        return new RNA(this.getComplementary(true));
     }
 
-    @Override
-    public String toString() {
-        String s = "";
-        for(Nucleobase n : strand){
-            s += n.getSymbol();
-        }
-
-        return s;
-    }
 }

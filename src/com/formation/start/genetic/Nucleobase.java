@@ -59,6 +59,9 @@ public class Nucleobase {
         if(RNA && (symbol=='A')){
             complementary = new Nucleobase('U');
         }
+        else if(RNA && (symbol=='U')){
+            complementary = new Nucleobase('A');
+        }
         else {
             complementary = new Nucleobase(symbolList.get((symbolList.indexOf(symbol) + 2) % 4));
         }
