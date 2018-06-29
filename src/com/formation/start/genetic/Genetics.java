@@ -9,10 +9,10 @@ public class Genetics {
 
         DNA dna = new DNA("AGTCGTAAA");
         System.out.println("ADN: " + dna);
-        DNA sdna = dna.getComplementary();
+        DNA sdna = dna.getComplementaryDNA();
         System.out.println("Son ADN complementaire: " + sdna);
 
-        RNA rna = dna.transcipt();
+        RNA rna = dna.transciptRNA();
         System.out.println("Son ARN: " + rna);
         System.out.println("Les codons de l'ARN: " +rna.codonList());
         System.out.println("Les acides aminés de l'ARN: " + rna.translate());

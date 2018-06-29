@@ -1,9 +1,5 @@
 package com.formation.start.genetic;
 
-import com.formation.start.genetic.Nucleobase;
-
-import java.util.ArrayList;
-
 public class DNA extends NucleicAcid {
 
     public DNA(){}
@@ -19,15 +15,11 @@ public class DNA extends NucleicAcid {
         this.setStrand(nucleicAcid.getStrand());
     }
 
-    public DNA getComplementary(){
-        NucleicAcid na = new NucleicAcid();
-        na.setStrand(this.getStrand());
-        NucleicAcid cna = na.getComplementary(false);
-        return new DNA(cna);
-
+    public DNA getComplementaryDNA(){
+        return new DNA(this.getComplementary(false));
     }
 
-    public RNA transcipt(){
+    public RNA transciptRNA(){
         return new RNA(this.getComplementary(true));
     }
 

@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class RNA extends NucleicAcid {
 
-      HashMap<String, Character> codonMap = new HashMap<>();
+    HashMap<String, Character> codonMap = new HashMap<>();
 
     {
         codonMap.put("UCA", 'S');
@@ -25,10 +25,8 @@ public class RNA extends NucleicAcid {
         }
     }
 
-    public RNA getComplementary(){
-
-        return new RNA(this.getComplementary(true));
-
+    public DNA getADN(){
+        return new DNA(this.getComplementary(true));
     }
 
     public RNA(ArrayList<Nucleobase> strand) {
