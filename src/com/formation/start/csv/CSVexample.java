@@ -13,40 +13,21 @@ import java.util.StringTokenizer;
 public class CSVexample {
 
     public static void main(String[] args) {
-        try {
-            /*BufferedReader reader = new BufferedReader(new FileReader("Mesures.csv"));
-            String line = reader.readLine();
-            while(line != null){
-                System.out.println(line);
-                line = reader.readLine();
-            }
-            reader.close();
+         ImportTable table = new ImportTable();
+        table.load(path+"Mesures.csv", ";");
+        table.print();
 
-            String s = "5;3;3";
-            StringTokenizer st = new StringTokenizer(s,";");
-            System.out.println(st.nextToken());
-            System.out.println(st.nextToken());
-            System.out.println(st.nextToken());
-            s = "3";
-            double d = Double.parseDouble(s);
-            System.out.println(d);*/
-            Mesure mesure = new Mesure();
-            mesure.load("Mesures.csv", ";");
-            List<ArrayList<Double>>  matrix = mesure.getMatrix();
-            mesure.show();
-            System.out.println(mesure.getQuadraticList(2,3));
-            System.out.println(mesure.getQuadraticErrorTimeList(2,3, 0.13));
-        }
-        catch (FileNotFoundException e){
-            e.printStackTrace();
-        }
-        catch (IOException ex){
-            ex.printStackTrace();
-        }
+        BookRepository bookRepository = new BookRepository();
+        bookRepository.load(path + "Livres.csv", ";");
+        bookRepository.fill();
+        System.out.println(bookRepository);
+        bookRepository.remove(bookRepository.getById(1));
+        System.out.println(bookRepository);
 
-        catch (ParseException e){
-            e.printStackTrace();
-        }
-
+        Mesures mesures = new Mesures();
+        mesures.load(path + "Mesures.csv", ";");
+        System.out.println(mesures.getDifference(2,3,2));
+        System.out.println(mesures.getIndexDifference(2,3,2, 0.001));
     }
+        
 }
