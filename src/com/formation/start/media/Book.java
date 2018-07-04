@@ -6,6 +6,8 @@ public class Book extends Media {
 
     private int nbpage = 0;
 
+    public Book(){}
+
     public Book(String title, double price, Publisher publisher, ArrayList<Author> authorList, int nbpage) {
         super(title, price, publisher, authorList);
         this.nbpage = nbpage;
@@ -26,4 +28,10 @@ public class Book extends Media {
                 ", nbpage=" + nbpage
                 ;
     }
+
+    public void setNbpage(int nbpage) {
+        this.nbpage = nbpage;
+    }
+
+
 }
