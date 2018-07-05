@@ -1,4 +1,4 @@
-package media;
+package com.formation.start.csv;
 
 public class Author {
     private String name;

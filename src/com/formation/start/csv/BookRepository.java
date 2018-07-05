@@ -1,7 +1,8 @@
-package media;
+package com.formation.start.csv;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class BookRepository extends ImportTable {
@@ -12,11 +13,12 @@ public class BookRepository extends ImportTable {
     public void fill() {
         for (ArrayList<String> s : getMatrix()) {
             Integer id = Integer.valueOf(s.get(0));
-            String title = String.valueOf(s.get(1));
+            String title = s.get(1);
             Double price = Double.valueOf(s.get(2));
             Integer nPage = Integer.valueOf(s.get(3));
             Publisher publisher = new Publisher(s.get(4));
             Book book = new Book(title, price, publisher, null, nPage);
+            book.setId(id);
             bookList.add(book);
         }
     }
@@ -27,44 +29,70 @@ public class BookRepository extends ImportTable {
 
     public Book getById(int id) {
         Book book = new Book();
-        for(Book b : bookList){
+
+        //prof
+        book = bookList
+                .stream()
+                .filter(b -> b.getId() == id)
+                .collect(Collectors.toList()).get(0);
+
+        //moi
+        /*for(Book b : bookList){
             if (b.getId() == id){
                 book = b;
                 break;
             }
-        }
+        }*/
         return book;
     }
 
     public List<Book> getByTitle(String title) {
-        title = title.toLowerCase();
+
         List<Book> bookByTitle = new ArrayList<>();
-        for(Book b : bookList){
+        //prof
+        bookByTitle = bookList
+                .stream()
+                .filter(b -> b.getTitle().toLowerCase().contains(title.toLowerCase()))
+                .collect(Collectors.toList());
+        //moi
+        /*for(Book b : bookList){
             String bookTitle = b.getTitle().toLowerCase();
-            if (bookTitle.contains(title)){
+            if (bookTitle.contains(title.toLowerCase())){
                 bookByTitle.add(b);
             }
-        }
+        }*/
         return bookByTitle;
     }
 
     public List<Book> getByPrice(double price) {
         List<Book> bookByPrice = new ArrayList<>();
-        for(Book b : bookList){
+        //prof
+        bookByPrice = bookList
+                .stream()
+                .filter(b -> b.getPrice() <= price)
+                .collect(Collectors.toList());
+        //moi
+        /*for(Book b : bookList){
             if (b.getPrice() <= price){
                 bookByPrice.add(b);
             }
-        }
+        }*/
         return bookByPrice;
     }
 
     public List<Book> getByPublisher(String publisherName) {
         List<Book> bookByPublisher = new ArrayList<>();
-        for(Book b : bookList){
+        //prof
+        bookByPublisher = bookList
+                .stream()
+                .filter(b -> b.getPublisher().getName().equals(publisherName))
+                .collect(Collectors.toList());
+        //moi
+        /*for(Book b : bookList){
             if (b.getPublisher().getName().equals(publisherName)){
                 bookByPublisher.add(b);
             }
-        }
+        }*/
         return bookByPublisher;
     }
 

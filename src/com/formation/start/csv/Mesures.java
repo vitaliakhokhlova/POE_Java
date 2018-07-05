@@ -1,24 +1,25 @@
-package media;
+package com.formation.start.csv;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Mesures extends ImportTable {
 
-    public List<Double> getColumn(int nColumn)  {
-        List<Double> column = new ArrayList<>();
+    public double[] getColumn(int nColumn)  {
+        double[] column = new double[getnLines()];
+        int i = 0;
         for (ArrayList<String> s : getMatrix()) {
-            column.add(Double.valueOf(s.get(nColumn-1)));
+            column[i++] = Double.valueOf(s.get(nColumn-1));
         }
         return column;
     }
 
 
-    public List<Double> getDifference(int nColumn, int mColumn, int order)  {
-        List<Double> getDifference = new ArrayList<>();
+    public double[] getDifference(int nColumn, int mColumn, int order)  {
+        double[] getDifference = new double[getnLines()];
+        int i = 0;
         for (ArrayList<String> s : getMatrix()) {
-
-            getDifference.add(Math.pow(Double.valueOf(s.get(nColumn-1))-Double.valueOf(s.get(mColumn-1)), order));
+            getDifference[i++] = Math.pow(Double.valueOf(s.get(nColumn-1))-Double.valueOf(s.get(mColumn-1)), order);
         }
         return getDifference;
     }

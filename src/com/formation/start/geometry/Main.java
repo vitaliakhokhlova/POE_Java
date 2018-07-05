@@ -3,7 +3,7 @@ package com.formation.start.geometry;
 public class Main {
     public static void main(String[] args) {
 
-        Point p1 = new Point(1,2);
+        /*Point p1 = new Point(1,2);
         Point p2 = p1.recopier();
         Point p3 = new Point();
         p3.recopier(p1);
@@ -19,6 +19,14 @@ public class Main {
         p3.setX(10);
         //p3.display();
         System.out.println(p3);
-        System.out.println(p1.equals(p2));
+        System.out.println(p1.equals(p2));*/
+
+        int[ ] t = new int[100];
+        try {
+            t[101] = 0; //dépassement de l’indice du tableau
+        } catch (Exception e) {
+            System.out.println (e.toString());
+        }
+
     }
 }

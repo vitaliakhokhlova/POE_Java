@@ -1,0 +1,509 @@
+@startuml
+
+title __STARTJAVA's Class Diagram__\n
+
+  package com.formation.start {
+    package com.formation.start.bank {
+      class Account {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class AminoAcid {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Author {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class Author {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Book {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class Book {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class BookRepository {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class BookRepository {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class CD {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    enum Civilite {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.bank {
+      class Client {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    class Codes {
+    }
+  }
+  
+
+  package com.formation.start {
+    enum CodesPays {
+    }
+  }
+  
+
+  package com.formation.start {
+    enum Couleurs {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.voitures {
+      enum Couleurs {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    class Cours_2018_06_26 {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class DNA {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class DVD {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class Genetics {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      interface IBookRepository {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    class If {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class ImportTable {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.calendrier {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.voitures {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.geometry {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.bank {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    class Matrices {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class Media {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Media {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class Medias {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Mesures {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    enum Mois {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.calendrier {
+      enum Mois {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class NucleicAcid {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class Nucleobase {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.geometry {
+      class Point {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Publisher {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
+      class Publisher {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class RNA {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.geometry {
+      class Rectangle {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.geometry {
+      class RectangleValeurNegative {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.calendrier {
+      enum Semaine {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    enum Semaine {
+    }
+  }
+  
+
+  package com.formation.start {
+    class Switch {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_18_Main {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_18_Main {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_19_If {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_19_Println {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_19_Println {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_20_Codes {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_20_Dessins {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_20_Dessins {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Calendrier {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Chaine {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Chaine {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Interets {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Interets {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Switch {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_21_Voitures {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_22 {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_22 {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_22_MathExpression {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_22_MathExpression {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_22_Matrices {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_25_PrimeNumbers {
+    }
+  }
+  
+
+  package com.formation.start {
+    class TP_2018_06_25_PrimeNumbers {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.bank {
+      class Transaction {
+      }
+    }
+  }
+  
+
+  Account o-- Client : client
+  Book -up-|> Media
+  Book -up-|> Media
+  BookRepository -up-|> IBookRepository
+  BookRepository -up-|> ImportTable
+  CD -up-|> Media
+  DNA -up-|> NucleicAcid
+  DVD -up-|> Media
+  Media o-- Publisher : publisher
+  Media o-- Publisher : publisher
+  Mesures -up-|> ImportTable
+  RNA -up-|> NucleicAcid
+  Rectangle o-- Point : origin
+  Transaction o-- Account : toAccount
+  Transaction o-- Account : fromAccount
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

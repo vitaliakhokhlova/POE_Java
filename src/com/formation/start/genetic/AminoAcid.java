@@ -4,27 +4,28 @@ import java.util.*;
 
 public class AminoAcid {
 
-    private char symbol;
-    private ArrayList<Character> symbolList = new ArrayList<Character>(Arrays.asList('A','F','S'));
-    private ArrayList<String> nameList = new ArrayList<String>(Arrays.asList("Alanine","Phenylalanine","Serine","Guanine","Uracil"));
-
+    private Character symbol;
+    private HashMap<Character, String> aaMap = new HashMap<>();
+    {
+        aaMap.put('A',"Alanine");
+        aaMap.put('L',"Leucine");
+    }
 
     public AminoAcid(Character symbol){
         symbol = Character.toUpperCase(symbol);
-        if(symbolList.contains(symbol)){
-            this.symbol =symbol;
-        }
-        else{
-            System.out.println("Error: No aminoacid with this symbol");
-        }
+        this.symbol = symbol;
     }
 
     public String getName() {
-        return nameList.get(symbolList.indexOf(symbol));
+        return aaMap.get(this.symbol);
+    }
+
+    public Character getSymbol() {
+        return symbol;
     }
 
     @Override
     public String toString() {
-        return getName();
+        return getSymbol().toString();
     }
 }
