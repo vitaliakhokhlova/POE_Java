@@ -5,6 +5,7 @@ import java.util.*;
 public class AminoAcid {
 
     private Character symbol;
+
     private HashMap<Character, String> aaMap = new HashMap<>();
     {
         aaMap.put('A',"Alanine");

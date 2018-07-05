@@ -5,11 +5,20 @@ import java.util.ArrayList;
 public class NucleicAcid {
 
     private ArrayList<Nucleobase> strand = new ArrayList<>();
+    private boolean ARN = false;
 
-    public NucleicAcid(String strand){
+    public NucleicAcid(String strand, boolean ARN){
+        if (strand.contains("U") && !ARN){
+            System.out.println("Error: 'U' can not be in DNA");
+        }
+        if (strand.contains("T") && ARN){
+            System.out.println("Error: 'T' can not be in RNA");
+        }
         for(char c : strand.toCharArray()) {
             this.strand.add(new Nucleobase(c));
         }
+
+
     }
 
     public NucleicAcid(){}

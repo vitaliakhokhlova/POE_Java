@@ -2,91 +2,103 @@
 
 title __GENETIC's Class Diagram__\n
 
-  package com.m2i.poe {
-      package com.m2i.poe.genetic {
-        class DNARepository {
-            + load(String uri)
-            + getBaseList() : List<Base>
-        }
-      }
-    }
-
-  package com.m2i.poe {
-    package com.m2i.poe.genetic {
-      class RNA {
-          - strand :     List<Base>
-          + RNA()
-      }
-    }
-  }
-
-  package com.m2i.poe {
-      package com.m2i.poe.genetic {
-        class Ribosome {
-            + translate(ARN arn) : List<AminoAcid>
-        }
-      }
-    }
-
-
-  package com.m2i.poe {
-    package com.m2i.poe.genetic {
+  package com.formation.start {
+    package com.formation.start.genetic {
       class AminoAcid {
-          - symbol : String
-          - trigram : String
-          - name : String
+          - symbol : Character
+          - aaMap : HashMap<Character, String>
           + AminoAcid()
-          + getSymbol()
-          + getTrigram()
           + getName()
+          + getSymbol()
           + toString()
       }
     }
   }
+  
 
-  package com.m2i.poe {
-      package com.m2i.poe.genetic {
-        class Protein {
-            - chain : List<AminoAcid>
-            + {static} factory(aminoAcidList : List<AminoAcid>) : List<Protein>
-        }
-      }
-    }
-
-
-  package com.m2i.poe {
-    package com.m2i.poe.genetic {
-      class Base {
-          - symbol : String
-          - name : String
-          - familly : String
-          + Base(String symbol)
-          + getApparie() : Base
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class ImportFile {
+          - nLines : int
+          - nColumns : int
+          - matrix : List<ArrayList<String>>
+          + getData() : String[][]
+          + ImportFile(String, String)
+          + print()
+          + getnLines() : int
+          + getnColumns() : int
       }
     }
   }
 
 
-  package com.m2i.poe {
-    package com.m2i.poe.genetic {
-      class DNA {
-          - strand : List<Base>
-          + DNA(String code)
-          + DNA()
-          + getComplementary() : List<Base>
-          + transcription() : RNA
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class NucleicAcid {
+          - strand : ArrayList<Nucleobase>
+          - ARN : boolean
+          + NucleicAcid()
+          + NucleicAcid(String, boolean)
+          + getStrand() : ArrayList<Nucleobase>
+          + setStrand(ArrayList<Nucleobase>)
+          + getComplementary() : NucleicAcid
+          + toString() : String
       }
     }
   }
 
-  Base o--> "1" Base : apparie
-  DNA o--> "*" Base : strand
-  DNA o--> "1" RNA : transcription
-  RNA o--> "*" AminoAcid : translation
-  Protein o--> "*" AminoAcid : chain
-  Ribosome o--> "1" RNA
-  Ribosome o--> "*" AminoAcid
 
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class Nucleobase {
+          - symbol : Character
+          - symbolList : ArrayList<Character>
+          - nameList : ArrayList<String>
+          + Nucleobase()
+          + Nucleobase(String)
+          + toString() : String
+          + getSymbol() : Character
+          + setSymbol(Character)
+          + getName() : String
+          + getFamily() : String
+          + getComplementary() : Nucleobase
+      }
+    }
+  }
+
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class Polypeptide {
+          - chain : ArrayList<AminoAcid>
+          + getPolypeptide() : ArrayList<AminoAcid>
+          + addPolypeptide(AminoAcid)
+          + toString() : String
+      }
+    }
+  }
+
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class Ribosome {
+          {static} + codonMap : HashMap<String, Character>
+          {static} - translate(NucleicAcid) : ArrayList<AminoAcid>
+          {static} - codonList(NucleicAcid) : ArrayList<String>
+          {static} + factory(NucleicAcid) : ArrayList<Polypeptide>
+      }
+    }
+  }
+
+
+  Nucleobase --> "1" Nucleobase : getComplementary
+  NucleicAcid --> "1" NucleicAcid : getComplementary
+  NucleicAcid o--> "*" Nucleobase : strand
+
+
+  Polypeptide o--> "*" AminoAcid : chain
+  Ribosome --> "1" NucleicAcid
+  Ribosome --> "*" Polypeptide : factory
 
 
 

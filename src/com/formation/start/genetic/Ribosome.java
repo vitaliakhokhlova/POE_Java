@@ -6,7 +6,15 @@ import java.util.HashMap;
 
 public class Ribosome {
 
-    private static HashMap<String, Character> codonMap = new HashMap<>();
+    /*private static Ribosome INSTANCE = new Ribosome();
+
+    private Ribosome(){}
+
+    public static Ribosome getINSTANCE(){
+        return INSTANCE;
+    }*/
+
+    public static final HashMap<String, Character> codonMap = new HashMap<>();
 
     {
         codonMap.put("UUU", 'F');
@@ -75,7 +83,7 @@ public class Ribosome {
         codonMap.put("GGG", 'G');
     }
 
-    private static ArrayList<AminoAcid> translate(RNA rna) {
+    private static ArrayList<AminoAcid> translate(NucleicAcid rna) {
         ArrayList<AminoAcid> aminoAcidsList = new ArrayList<>();
         for (String c : codonList(rna)) {
             aminoAcidsList.add(new AminoAcid(codonMap.get(c)));
@@ -83,7 +91,7 @@ public class Ribosome {
         return aminoAcidsList;
     }
 
-    private static ArrayList<String> codonList(RNA rna) {
+    private static ArrayList<String> codonList(NucleicAcid rna) {
         ArrayList<String> codonList = new ArrayList<>();
         int n = rna.getStrand().size();
         for (int i = 0; i < n - 2; i += 3) {
@@ -96,7 +104,7 @@ public class Ribosome {
         return codonList;
     }
 
-    public static ArrayList<Polypeptide> factory(RNA rna) {
+    public static ArrayList<Polypeptide> factory(NucleicAcid rna) {
         ArrayList<AminoAcid> aaList = translate(rna);
         ArrayList<Polypeptide> polypeptideList = new ArrayList<>();
         Polypeptide polypeptide = new Polypeptide();

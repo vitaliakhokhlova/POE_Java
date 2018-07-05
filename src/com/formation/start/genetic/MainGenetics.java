@@ -13,15 +13,12 @@ public class MainGenetics {
         ImportFile file = new ImportFile(uri," ");
         String adnString = file.getData()[0][0];
 
-        DNA dna = new DNA(adnString);
+        NucleicAcid dna = new NucleicAcid(adnString, false);
         System.out.println("DNA:" + dna);
-        RNA rna = dna.transciptRNA();
+        NucleicAcid rna = dna.getComplementary(true);
         System.out.println("RNA:" + rna);
 
-        Ribosome ribosome = new Ribosome();
-        //ArrayList<AminoAcid> aaList = Ribosome.translate(rna);
-        //System.out.println("Aminoacids:" + aaList);
-        List<Polypeptide> polypeptideList = Ribosome.factory(rna);
+        List<Polypeptide> polypeptideList = new Ribosome().factory(rna);
         int i = 0;
         for(Polypeptide p : polypeptideList) {
             System.out.println("Peptide" + (i++) + ": " + p);

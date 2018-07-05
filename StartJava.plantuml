@@ -121,24 +121,8 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    package com.formation.start.genetic {
-      class DNA {
-      }
-    }
-  }
-  
-
-  package com.formation.start {
     package com.formation.start.media {
       class DVD {
-      }
-    }
-  }
-  
-
-  package com.formation.start {
-    package com.formation.start.genetic {
-      class Genetics {
       }
     }
   }
@@ -159,6 +143,14 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
+    package com.formation.start.genetic {
+      class ImportFile {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
     package com.formation.start.csv {
       class ImportTable {
       }
@@ -167,31 +159,15 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    package com.formation.start.calendrier {
-      class Main {
-      }
-    }
-  }
-  
-
-  package com.formation.start {
-    package com.formation.start.csv {
-      class Main {
-      }
-    }
-  }
-  
-
-  package com.formation.start {
-    package com.formation.start.voitures {
-      class Main {
-      }
-    }
-  }
-  
-
-  package com.formation.start {
     package com.formation.start.geometry {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.calendrier {
       class Main {
       }
     }
@@ -207,14 +183,8 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    class Matrices {
-    }
-  }
-  
-
-  package com.formation.start {
-    package com.formation.start.media {
-      class Media {
+    package com.formation.start.voitures {
+      class Main {
       }
     }
   }
@@ -222,6 +192,36 @@ title __STARTJAVA's Class Diagram__\n
 
   package com.formation.start {
     package com.formation.start.csv {
+      class Main {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.genetic {
+      class MainGenetics {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    class Matrices {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.csv {
+      class Media {
+      }
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.media {
       class Media {
       }
     }
@@ -245,15 +245,15 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    enum Mois {
+    package com.formation.start.calendrier {
+      enum Mois {
+      }
     }
   }
   
 
   package com.formation.start {
-    package com.formation.start.calendrier {
-      enum Mois {
-      }
+    enum Mois {
     }
   }
   
@@ -283,8 +283,8 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    package com.formation.start.csv {
-      class Publisher {
+    package com.formation.start.genetic {
+      class Polypeptide {
       }
     }
   }
@@ -299,8 +299,8 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    package com.formation.start.genetic {
-      class RNA {
+    package com.formation.start.csv {
+      class Publisher {
       }
     }
   }
@@ -323,8 +323,8 @@ title __STARTJAVA's Class Diagram__\n
   
 
   package com.formation.start {
-    package com.formation.start.calendrier {
-      enum Semaine {
+    package com.formation.start.genetic {
+      class Ribosome {
       }
     }
   }
@@ -332,6 +332,14 @@ title __STARTJAVA's Class Diagram__\n
 
   package com.formation.start {
     enum Semaine {
+    }
+  }
+  
+
+  package com.formation.start {
+    package com.formation.start.calendrier {
+      enum Semaine {
+      }
     }
   }
   
@@ -488,12 +496,10 @@ title __STARTJAVA's Class Diagram__\n
   BookRepository -up-|> IBookRepository
   BookRepository -up-|> ImportTable
   CD -up-|> Media
-  DNA -up-|> NucleicAcid
   DVD -up-|> Media
   Media o-- Publisher : publisher
   Media o-- Publisher : publisher
   Mesures -up-|> ImportTable
-  RNA -up-|> NucleicAcid
   Rectangle o-- Point : origin
   Transaction o-- Account : toAccount
   Transaction o-- Account : fromAccount
