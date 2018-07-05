@@ -12,9 +12,18 @@ public class ImportFile {
         private int nColumns;
         private List<ArrayList<String>> matrix = new ArrayList();
 
-        public List<ArrayList<String>> getMatrix() {
-            return matrix;
+    public String[][] getData() {
+        String[][] array2D= new String[nLines][nColumns];
+        int i =0;
+        for(ArrayList<String> row : matrix){
+            int j = 0;
+            for(String r : row){
+                array2D[i][j++] = r;
+            }
+            i++;
         }
+        return array2D;
+    }
 
         public ImportFile(String uri, String separator) throws IOException {
             BufferedReader reader = new BufferedReader(new FileReader(uri));

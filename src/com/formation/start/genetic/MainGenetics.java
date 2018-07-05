@@ -1,7 +1,6 @@
 package com.formation.start.genetic;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainGenetics {
@@ -12,8 +11,7 @@ public class MainGenetics {
     public static void main(String[] args) throws IOException {
 
         ImportFile file = new ImportFile(uri," ");
-        List<ArrayList<String>> matrix = file.getMatrix();
-        String adnString = matrix.get(0).get(0);
+        String adnString = file.getData()[0][0];
 
         DNA dna = new DNA(adnString);
         System.out.println("DNA:" + dna);
