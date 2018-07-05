@@ -75,7 +75,7 @@ public class Ribosome {
         codonMap.put("GGG", 'G');
     }
 
-    public static ArrayList<AminoAcid> translate(RNA rna) {
+    private static ArrayList<AminoAcid> translate(RNA rna) {
         ArrayList<AminoAcid> aminoAcidsList = new ArrayList<>();
         for (String c : codonList(rna)) {
             aminoAcidsList.add(new AminoAcid(codonMap.get(c)));
@@ -96,7 +96,8 @@ public class Ribosome {
         return codonList;
     }
 
-    public static ArrayList<Polypeptide> factory(ArrayList<AminoAcid> aaList) {
+    public static ArrayList<Polypeptide> factory(RNA rna) {
+        ArrayList<AminoAcid> aaList = translate(rna);
         ArrayList<Polypeptide> polypeptideList = new ArrayList<>();
         Polypeptide polypeptide = new Polypeptide();
         for (AminoAcid aa : aaList) {
