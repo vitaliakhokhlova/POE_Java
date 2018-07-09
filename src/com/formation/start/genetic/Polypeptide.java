@@ -20,7 +20,6 @@ public class Polypeptide {
         for(AminoAcid a : chain){
             s += a.getSymbol();
         }
-
         return s;
     }
 }

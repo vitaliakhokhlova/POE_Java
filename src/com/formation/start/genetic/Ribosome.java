@@ -6,82 +6,72 @@ import java.util.HashMap;
 
 public class Ribosome {
 
-    /*private static Ribosome INSTANCE = new Ribosome();
-
-    private Ribosome(){}
-
-    public static Ribosome getINSTANCE(){
-        return INSTANCE;
-    }*/
-
-    public static final HashMap<String, Character> codonMap = new HashMap<>();
-
-    {
-        codonMap.put("UUU", 'F');
-        codonMap.put("UUC", 'F');
-        codonMap.put("UUA", 'L');
-        codonMap.put("UUG", 'L');
-        codonMap.put("CUU", 'L');
-        codonMap.put("CUC", 'L');
-        codonMap.put("CUA", 'L');
-        codonMap.put("CUG", 'L');
-        codonMap.put("AUU", 'I');
-        codonMap.put("AUC", 'I');
-        codonMap.put("AUA", 'I');
-        codonMap.put("AUG", 'M');
-        codonMap.put("GUU", 'V');
-        codonMap.put("GUC", 'V');
-        codonMap.put("GUA", 'V');
-        codonMap.put("GUG", 'V');
-        codonMap.put("UCU", 'S');
-        codonMap.put("UCC", 'S');
-        codonMap.put("UCA", 'S');
-        codonMap.put("UCG", 'S');
-        codonMap.put("CCU", 'P');
-        codonMap.put("CCC", 'P');
-        codonMap.put("CCA", 'P');
-        codonMap.put("CCG", 'P');
-        codonMap.put("ACU", 'T');
-        codonMap.put("ACC", 'T');
-        codonMap.put("ACA", 'T');
-        codonMap.put("ACG", 'T');
-        codonMap.put("GCU", 'A');
-        codonMap.put("GCC", 'A');
-        codonMap.put("GCA", 'A');
-        codonMap.put("GCG", 'A');
-        codonMap.put("UAU", 'Y');
-        codonMap.put("UAC", 'Y');
-        codonMap.put("UAA", ' ');
-        codonMap.put("UAG", ' ');
-        codonMap.put("CAU", 'H');
-        codonMap.put("CAC", 'H');
-        codonMap.put("CAA", 'Q');
-        codonMap.put("CAG", 'Q');
-        codonMap.put("AAU", 'N');
-        codonMap.put("AAC", 'N');
-        codonMap.put("AAA", 'K');
-        codonMap.put("AAG", 'K');
-        codonMap.put("GAU", 'D');
-        codonMap.put("GAC", 'D');
-        codonMap.put("GAA", 'E');
-        codonMap.put("GAG", 'E');
-        codonMap.put("UGU", 'C');
-        codonMap.put("UGC", 'C');
-        codonMap.put("UGA", ' ');
-        codonMap.put("UGG", 'W');
-        codonMap.put("CGU", 'R');
-        codonMap.put("CGC", 'R');
-        codonMap.put("CGA", 'R');
-        codonMap.put("CGG", 'R');
-        codonMap.put("AGU", 'S');
-        codonMap.put("AGC", 'S');
-        codonMap.put("AGA", 'R');
-        codonMap.put("AGG", 'R');
-        codonMap.put("GGU", 'G');
-        codonMap.put("GGC", 'G');
-        codonMap.put("GGA", 'G');
-        codonMap.put("GGG", 'G');
-    }
+    public static final HashMap<String, Character> codonMap = new HashMap<String, Character>(){{
+        put("UUU", 'F');
+        put("UUC", 'F');
+        put("UUA", 'L');
+        put("UUG", 'L');
+        put("CUU", 'L');
+        put("CUC", 'L');
+        put("CUA", 'L');
+        put("CUG", 'L');
+        put("AUU", 'I');
+        put("AUC", 'I');
+        put("AUA", 'I');
+        put("AUG", 'M');
+        put("GUU", 'V');
+        put("GUC", 'V');
+        put("GUA", 'V');
+        put("GUG", 'V');
+        put("UCU", 'S');
+        put("UCC", 'S');
+        put("UCA", 'S');
+        put("UCG", 'S');
+        put("CCU", 'P');
+        put("CCC", 'P');
+        put("CCA", 'P');
+        put("CCG", 'P');
+        put("ACU", 'T');
+        put("ACC", 'T');
+        put("ACA", 'T');
+        put("ACG", 'T');
+        put("GCU", 'A');
+        put("GCC", 'A');
+        put("GCA", 'A');
+        put("GCG", 'A');
+        put("UAU", 'Y');
+        put("UAC", 'Y');
+        put("UAA", ' ');
+        put("UAG", ' ');
+        put("CAU", 'H');
+        put("CAC", 'H');
+        put("CAA", 'Q');
+        put("CAG", 'Q');
+        put("AAU", 'N');
+        put("AAC", 'N');
+        put("AAA", 'K');
+        put("AAG", 'K');
+        put("GAU", 'D');
+        put("GAC", 'D');
+        put("GAA", 'E');
+        put("GAG", 'E');
+        put("UGU", 'C');
+        put("UGC", 'C');
+        put("UGA", ' ');
+        put("UGG", 'W');
+        put("CGU", 'R');
+        put("CGC", 'R');
+        put("CGA", 'R');
+        put("CGG", 'R');
+        put("AGU", 'S');
+        put("AGC", 'S');
+        put("AGA", 'R');
+        put("AGG", 'R');
+        put("GGU", 'G');
+        put("GGC", 'G');
+        put("GGA", 'G');
+        put("GGG", 'G');
+    }};
 
     private static ArrayList<AminoAcid> translate(NucleicAcid rna) {
         ArrayList<AminoAcid> aminoAcidsList = new ArrayList<>();
@@ -95,10 +85,9 @@ public class Ribosome {
         ArrayList<String> codonList = new ArrayList<>();
         int n = rna.getStrand().size();
         for (int i = 0; i < n - 2; i += 3) {
-            String codon = "";
-            codon += rna.getStrand().get(i).getSymbol();
-            codon += rna.getStrand().get(i + 1).getSymbol();
-            codon += rna.getStrand().get(i + 2).getSymbol();
+            String codon =  rna.getStrand().get(i).getSymbol().toString()+
+                            rna.getStrand().get(i + 1).getSymbol().toString() +
+                            rna.getStrand().get(i + 2).getSymbol();
             codonList.add(codon);
         }
         return codonList;
@@ -112,7 +101,9 @@ public class Ribosome {
             if (!aa.getSymbol().equals(' ')) {
                 polypeptide.addPolypeptide(aa);
             } else {
-                polypeptideList.add(polypeptide);
+                if(polypeptide.getChain().size()>1) {
+                    polypeptideList.add(polypeptide);
+                }
                 polypeptide = new Polypeptide();
             }
         }

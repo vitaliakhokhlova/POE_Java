@@ -4,37 +4,33 @@ import java.util.ArrayList;
 
 public class NucleicAcid {
 
-    private ArrayList<Nucleobase> strand = new ArrayList<>();
+    private ArrayList<Nucleotide> strand = new ArrayList<>();
     private boolean ARN = false;
 
     public NucleicAcid(String strand, boolean ARN){
         if (strand.contains("U") && !ARN){
-            System.out.println("Error: 'U' can not be in DNA");
+            throw new IllegalArgumentException("Error: 'U' can not be in DNA");
         }
         if (strand.contains("T") && ARN){
-            System.out.println("Error: 'T' can not be in RNA");
+            throw new IllegalArgumentException("Error: 'T' can not be in RNA");
         }
         for(char c : strand.toCharArray()) {
-            this.strand.add(new Nucleobase(c));
+            this.strand.add(new Nucleotide(c));
         }
-
-
     }
 
-    public NucleicAcid(){}
 
-
-    public ArrayList<Nucleobase> getStrand() {
+    public ArrayList<Nucleotide> getStrand() {
         return strand;
     }
 
-    public void setStrand(ArrayList<Nucleobase> strand) {
+    public void setStrand(ArrayList<Nucleotide> strand) {
         this.strand = strand;
     }
 
     public NucleicAcid getComplementary(boolean RNA){
-        NucleicAcid acid = new NucleicAcid();
-        for(Nucleobase n : this.getStrand()){
+        NucleicAcid acid = new NucleicAcid("", RNA);
+        for(Nucleotide n : this.getStrand()){
             acid.strand.add(n.getComplementary(RNA));
         }
         return acid;
@@ -43,10 +39,9 @@ public class NucleicAcid {
     @Override
     public String toString() {
         String s = "";
-        for(Nucleobase n : strand){
+        for(Nucleotide n : strand){
             s += n.getSymbol();
         }
-
         return s;
     }
 }

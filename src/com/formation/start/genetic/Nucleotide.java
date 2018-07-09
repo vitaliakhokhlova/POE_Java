@@ -2,29 +2,26 @@ package com.formation.start.genetic;
 
 import java.util.*;
 
-public class Nucleobase {
+public class Nucleotide {
 
     private Character symbol;
 
     private ArrayList<Character> symbolList = new ArrayList<Character>(Arrays.asList('A','C','T','G','U'));
     private ArrayList<String> nameList = new ArrayList<String>(Arrays.asList("Adenine","Cytosine","Thymine","Guanine","Uracil"));
 
-    public Nucleobase(){
-    }
-
-    public Nucleobase(Character symbol){
+    public Nucleotide(Character symbol){
         symbol = Character.toUpperCase(symbol);
         if(symbolList.contains(symbol)){
             this.setSymbol(symbol);
         }
         else{
-            System.out.println("Error: No nucleobase with this symbol");
+            throw new IllegalArgumentException("Error: No nucleobase with this symbol");
         }
     }
 
     @Override
     public String toString() {
-        return "Nucleobase{" +
+        return "Nucleotide{" +
                 "symbol=" + symbol +
                 ", name=" + getName() +
                 ", family=" + getFamily() +
@@ -54,16 +51,16 @@ public class Nucleobase {
         return family;
     }
 
-    public Nucleobase getComplementary(boolean RNA) {
-        Nucleobase complementary;
+    public Nucleotide getComplementary(boolean RNA) {
+        Nucleotide complementary;
         if(RNA && (symbol=='A')){
-            complementary = new Nucleobase('U');
+            complementary = new Nucleotide('U');
         }
         else if(RNA && (symbol=='U')){
-            complementary = new Nucleobase('A');
+            complementary = new Nucleotide('A');
         }
         else {
-            complementary = new Nucleobase(symbolList.get((symbolList.indexOf(symbol) + 2) % 4));
+            complementary = new Nucleotide(symbolList.get((symbolList.indexOf(symbol) + 2) % 4));
         }
         return  complementary;
     }

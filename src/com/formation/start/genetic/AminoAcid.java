@@ -6,15 +6,13 @@ public class AminoAcid {
 
     private Character symbol;
 
-    private HashMap<Character, String> aaMap = new HashMap<>();
-    {
-        aaMap.put('A',"Alanine");
-        aaMap.put('L',"Leucine");
-    }
+    private HashMap<Character, String> aaMap = new HashMap<Character, String>(){{
+        put('A',"Alanine");
+        put('L',"Leucine");
+    }};
 
     public AminoAcid(Character symbol){
-        symbol = Character.toUpperCase(symbol);
-        this.symbol = symbol;
+        this.symbol =  Character.toUpperCase(symbol);
     }
 
     public String getName() {
