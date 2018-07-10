@@ -33,23 +33,24 @@ public class HtmlPage {
 
         String title = "Test";
         String table =
-                " <table BORDER=\"2\" style=\"width:50%\" id=\"t01\">"
-                        +"<tr><th>id</th>" +
-                        "<th>title</th>" +
-                        "<th>price</th>" +
+                " <table BORDER=\"2\" style=\"width:50%\" id=\"t01\">\n"
+                        +"<tr>\n" +
+                        "<th>id</th>\n" +
+                        "<th>title</th>\n" +
+                        "<th>price</th>\n" +
                         //"<th>publisher</th>" +
-                        "</tr>";
+                        "</tr>\n";
         HashMap<Integer, String> fileMap = new HashMap<Integer, String>(){{
             put(4,"bible");
         }};
         int i = 0;
         for(Book b : books){
-            table+="<tr>";
-            table+="<td>" + b.getId() + "</td>";
-            table+="<td>" + "<a href=\"" + fileMap.get(b.getId()) + ".html\">" + b.getTitle() + "</a>" +"</td>";
-            table+="<td>" + b.getPrice() + "</td>";
+            table+="<tr>\n";
+            table+="<td>" + b.getId() + "</td>\n";
+            table+="<td>" + "<a href=\"" + fileMap.get(b.getId()) + ".html\">" + b.getTitle() + "</a>" +"</td>\n";
+            table+="<td>" + b.getPrice() + "</td>\n";
             //table+="<td>" + b.getPublisher() + "</td>";
-            table+="</tr>";
+            table+="</tr>\n";
             //i++;
         }
         htmlString = htmlString.replace("$title", title);
