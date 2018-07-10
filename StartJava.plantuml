@@ -497,8 +497,8 @@ title __STARTJAVA's Class Diagram__\n
   BookRepository -up-|> ImportTable
   CD -up-|> Media
   DVD -up-|> Media
-  Media o-- Publisher : publisher
-  Media o-- Publisher : publisher
+  Media o-- Publisher : integer
+  Media o-- Publisher : integer
   Mesures -up-|> ImportTable
   Rectangle o-- Point : origin
   Transaction o-- Account : toAccount
