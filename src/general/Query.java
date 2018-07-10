@@ -13,10 +13,11 @@ public class Query {
             connection.close();
             return rs;
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            return null;
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

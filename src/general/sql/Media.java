@@ -26,8 +26,6 @@ public class Media {
         return price;
     }
 
-    ;
-
     public void setPrice(double price) {
         this.price = price;
     }

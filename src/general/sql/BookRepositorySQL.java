@@ -16,20 +16,19 @@ public class BookRepositorySQL {
     private ArrayList<Book> getByQuery(String queryString) throws SQLException {
         ArrayList<Book> bookList = new ArrayList<Book>();
         ResultSet rs = Query.getQuery(driverName, url, user, password, queryString);
-        while (rs.next()) {
+        if (rs != null){
+            while (rs.next()) {
             Book book = new Book(
-                    Integer.parseInt(rs.getString("id")),
+                    rs.getInt("id"),
                     rs.getString("title"),
-                    Double.valueOf(rs.getString("price"))
+                    rs.getDouble("price")
                     );
             bookList.add(book);
         }
-        return bookList;
+        return bookList;}
+        return null;
     }
 
-    private void setByQuery(String queryString) throws SQLException{
-        Query query = new Query();
-    }
 
     public ArrayList<Book> getAll() throws SQLException {
         return getByQuery("select * from book");
@@ -47,7 +46,7 @@ public class BookRepositorySQL {
         return getByQuery("select * from book where price <" + price);
     }
 
-    public void add(Book b) {
-
+    public void add(Book b) throws SQLException  {
+        getByQuery("insert into book (title, price) values ('"+b.getTitle()+"',"+b.getPrice()+")");
     }
 }
