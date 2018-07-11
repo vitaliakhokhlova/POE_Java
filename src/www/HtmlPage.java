@@ -1,5 +1,3 @@
-package www;
-
 import general.sql.Book;
 import general.sql.BookRepositorySQL;
 import org.apache.commons.io.FileUtils;
@@ -13,9 +11,7 @@ import java.util.HashMap;
 
 public class HtmlPage {
 
-    //public static Path path = FileSystems.getDefault().getPath(".").toAbsolutePath();
-
-    public static void main(String[] args) throws IOException, SQLException {
+      public static void main(String[] args) throws IOException, SQLException {
 
         String myCurrentDir = System.getProperty("user.dir")
                 + "/src"
