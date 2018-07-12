@@ -48,12 +48,11 @@ public class BookRepository {
             Double price = Double.valueOf(s.get(2));
             java.lang.Integer nPage = java.lang.Integer.valueOf(s.get(3));
             Publisher publisher = new Publisher(s.get(4));
-            Book book = new Book(title, price, publisher ,  nPage);
+            Book book = new Book(title, price, publisher, nPage);
             book.setId(id);
             bookList.add(book);
         }
     }
-
 
 
     public Book getById(int id) {

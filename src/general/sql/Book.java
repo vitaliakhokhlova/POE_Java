@@ -7,8 +7,7 @@ public class Book extends Media {
     public Book() {
     }
 
-    public Book(int id, String title, double price)
-    {
+    public Book(int id, String title, double price) {
         super(id, title, price);
     }
 

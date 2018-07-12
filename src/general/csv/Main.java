@@ -24,8 +24,8 @@ public class Main {
 
         Mesures mesures = new Mesures();
         mesures.load(path + "Mesures.csv", ";");
-        System.out.println(Arrays.toString(mesures.getDifference(2,3,2)));
-        System.out.println(mesures.getIndexDifference(2,3,2, 0.001));
+        System.out.println(Arrays.toString(mesures.getDifference(2, 3, 2)));
+        System.out.println(mesures.getIndexDifference(2, 3, 2, 0.001));
     }
 
 

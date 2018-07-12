@@ -14,7 +14,8 @@ public class Media {
     private Publisher publisher;
     private ArrayList<Author> authorList;
 
-    public Media() {}
+    public Media() {
+    }
 
     public Media(int id, String title, double price) {
         this.id = id;
@@ -42,10 +43,6 @@ public class Media {
                 ", publisherid={" + publisher + "}";
     }
 
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
-
     public int getId() {
         return id;
     }
@@ -64,6 +61,10 @@ public class Media {
 
     public Publisher getPublisher() {
         return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     public ArrayList<Author> getAuthorList() {
