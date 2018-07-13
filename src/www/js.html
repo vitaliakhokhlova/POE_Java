@@ -41,13 +41,18 @@
 
     Use as a watermark
     In 2010 when Craig Venter unveiled the first fully functioning, reproducing cell controlled by synthetic DNA he described how his team used frequent stop codons to create watermarks in RNA and DNA to help confirm the results were indeed synthetic (and not contaminated or otherwise), using it to encode authors' names and website addresses.[24]</font><br/> -->
-<input type="button" value="OK" style="width:100px;height:60px;" onclick="compteur()"><br/>
+    <script language="JavaScript">
+        var tab = new Array(1,2,3,4,5,6,7,8,9,10);
+    </script>
+
+<input type="button" value="Sum" style="width:100px;height:60px;" onclick="document.write('La somme de ' + tab + ' est ' + sum(tab))"><br/>
+<input type="button" value="Max" style="width:100px;height:60px;" onclick="document.write('Le max de ' + tab + ' est ' + maximum(tab))"><br/>
+<input type="button" value="Avg" style="width:100px;height:60px;" onclick="document.write('La moyenne de ' + tab + ' est ' + avg(tab))"><br/>
+<input type="button" value="Primes" style="width:100px;height:60px;" onclick="document.write('Les nombres primaires dans ' + tab + ' sont ' + tab.filter(isPrimeNumber))"><br/>
 
 <script language="JavaScript">
-        document.write(circleArea(2) + '<br/>');
-        document.write(navigator.appCodeName + '<br/>');
-        var tab = new Array(1,2,3,4,5,6,7,8,9,10);
-        document.write(sum(tab));
+        // document.write(circleArea(2) + '<br/>');
+        // document.write(navigator.appCodeName + '<br/>');
     </script>
 
 </body>
