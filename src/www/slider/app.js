@@ -11,7 +11,7 @@ var Slider = {
         self.widthTotal = 100 * nbSlides;
 
         var rollover = setInterval(function () {
-           self.nextSlide();
+            self.changeSlide(+1);
         }, 2500);
 
         $('#monSliderArrows').on('mouseover', function () {
@@ -20,7 +20,7 @@ var Slider = {
 
         $('#monSliderArrows').on('mouseout', function () {
             rollover = setInterval(function () {
-                self.nextSlide();
+                self.changeSlide(+1);
             }, 2500)
         });
 
