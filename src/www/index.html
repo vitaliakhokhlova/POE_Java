@@ -6,7 +6,6 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/main.js" defer></script>
     <meta charset="UTF-8">
     <title>Find book</title>
 </head>
@@ -20,18 +19,6 @@
 
 
 <div id="server-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
-<script>
-$('#search_id').submit(function(event){
-  event.preventDefault();
-  $("#server-results").empty();
-  $.getJSON($(this).attr("action"), $(this).serialize(), function(response) {
-      $.each(response, function(key, val) {
-            $("#server-results").append( key + ": " + val + "<br />");
-        });
-    });
-});
-
-</script>
 
 <form action="/StartJava/rest/book/title" method="get" id="search_title">
     Search by title:
@@ -48,6 +35,7 @@ $('#search_id').submit(function(event){
         <th>Pages</th>
         <th>Publisher</th>
         <th>Authors</th>
+        <th>&nbsp;</th>
     </tr>
     </thead>
         <tbody id="title-results">
@@ -55,6 +43,16 @@ $('#search_id').submit(function(event){
 </table>
 
 <script>
+    $('#search_id').submit(function(event){
+  event.preventDefault();
+  $("#server-results").empty();
+  $.getJSON($(this).attr("action"), $(this).serialize(), function(response) {
+      $.each(response, function(key, val) {
+            $("#server-results").append( key + ": " + val + "<br />");
+        });
+    });
+});
+
 $('#search_title').submit(function(event){
   event.preventDefault();
   $("#title-results").empty();
@@ -64,24 +62,33 @@ $('#search_title').submit(function(event){
         string += '<tr><td>' + value.id
         + '</td><td>' + value.title
         + '</td><td>' + value.price
-        + '</td><td>' +value.nbpage;
-      if(value.publisher != undefined){
-            string +=  '</td><td>' + value.publisher.name;
-      }
+        + '</td><td>' +value.nbpage + '</td><td>';
+
+        if(value.publisher != undefined){
+            string +=  value.publisher.name;
+        }
+        string +=  '</td><td>'
         if(value.authors != undefined){
-            string +=  '</td><td>'
             var virgule = '';
             $.each(value.authors, function( index, valueauthors ) {
                 string +=  virgule + valueauthors.name;
                 virgule = ', ';
                 })
         }
-
+        string += '</td><td>'
+        string += '<button type="button" onclick="myFunction(' + value.id + ')">X</button>'
         string += '</td></tr>';
       });
       $("#title-results").append(string);
   });
 });
+
+function myFunction (id) {
+    $.ajax({
+                url: 'rest/book/' + id,
+                type: 'DELETE'
+        });
+    };
 </script>
 
 </body>
