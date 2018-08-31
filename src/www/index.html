@@ -6,6 +6,7 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js" defer></script>
     <meta charset="UTF-8">
     <title>Find book</title>
 </head>
@@ -30,11 +31,6 @@ $('#search_id').submit(function(event){
     });
 });
 
-
-
-
-
-
 </script>
 
 <form action="/StartJava/rest/book/title" method="get" id="search_title">
@@ -51,6 +47,7 @@ $('#search_id').submit(function(event){
         <th>Price</th>
         <th>Pages</th>
         <th>Publisher</th>
+        <th>Authors</th>
     </tr>
     </thead>
         <tbody id="title-results">
@@ -62,19 +59,27 @@ $('#search_title').submit(function(event){
   event.preventDefault();
   $("#title-results").empty();
   $.get($(this).attr("action"), $(this).serialize(), function(response) {
+      var string = '';
       $.each(response, function( index, value ) {
-      $("#title-results").append("<tr>"
-      +"<td>" + value["id"] + "</td>"
-      +"<td>" +value["title"]  + "</td>"
-      +"<td>" + value["price"] + "</td>"
-       +"<td>" + value["nbpage"]);
-       if(value["publisher"]["name"] != undefined){
-            $("#title-results").append(value["publisher"]["name"]  + "</td></tr>");
-            }
-       else{
-            $("#title-results").append("<td></td></tr>");
-            }
+        string += '<tr><td>' + value.id
+        + '</td><td>' + value.title
+        + '</td><td>' + value.price
+        + '</td><td>' +value.nbpage;
+      if(value.publisher != undefined){
+            string +=  '</td><td>' + value.publisher.name;
+      }
+        if(value.authors != undefined){
+            string +=  '</td><td>'
+            var virgule = '';
+            $.each(value.authors, function( index, valueauthors ) {
+                string +=  virgule + valueauthors.name;
+                virgule = ', ';
+                })
+        }
+
+        string += '</td></tr>';
       });
+      $("#title-results").append(string);
   });
 });
 </script>
