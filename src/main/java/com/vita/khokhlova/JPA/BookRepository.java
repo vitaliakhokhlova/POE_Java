@@ -4,6 +4,7 @@ import com.vita.khokhlova.EntityManagerFactorySingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.List;
 
 public class BookRepository {
@@ -50,5 +51,12 @@ public class BookRepository {
         catch (Exception e) {
             tx.rollback();
         }
+    }
+
+    public List<Book> getByTitle(String title) {
+        String queryString = "select b from Book b where upper(b.title) LIKE '%" + title.toUpperCase()  + "%'";
+        Query query = em.createQuery(queryString);
+        List<Book> bookList = query.getResultList();
+        return bookList;
     }
 }

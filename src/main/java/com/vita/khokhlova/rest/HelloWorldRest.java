@@ -40,10 +40,17 @@ public class HelloWorldRest {
 
 
     @GET
-    @Path("book")
+    @Path("book/id")
     @Produces(MediaType.APPLICATION_JSON)
-    public Book getBookQuery(@QueryParam("sId") String sId){
-        return bookRepository.getById(Integer.parseInt(sId));
+    public Book getBookById(@QueryParam("fId") String id){
+        return bookRepository.getById(Integer.parseInt(id));
+    }
+
+    @GET
+    @Path("book/title")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Book> getBookByTitle(@QueryParam("fTitle") String title){
+        return bookRepository.getByTitle(title);
     }
 
 //

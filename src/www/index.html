@@ -5,24 +5,55 @@
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/listeners.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>Find book</title>
 </head>
 <body>
 
-<form>
+<form action="/StartJava/rest/book/id" method="get" id="search_id">
     Id:
-    <input type="number" name="sId"/>
+    <input type="number" name="fId"/>
     <input type="submit" value="OK"/>
 </form>
+
+
+<div id="server-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
 <script>
+$('#search_id').submit(function(event){
+  event.preventDefault();
+  var post_url = $(this).attr("action");
+  var form_data = $(this).serialize();
+  $.getJSON(post_url, form_data, function(response) {
+      $.each(response, function(key, val) {
+            $("#server-results").append( key + ": " + val + "<br />");
+        });
+    });
+});
 
 </script>
 
-<div id="content" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
+<form action="/StartJava/rest/book/title" method="get" id="search_title">
+    Search by title:
+    <input type="text" name="fTitle"/>
+    <input type="submit" value="OK"/>
+</form>
+
+<script>
+$('#search_title').submit(function(event){
+  event.preventDefault();
+  var post_url = $(this).attr("action");
+  var form_data = $(this).serialize();
+  $.get(post_url, form_data, function(response) {
+
+            $("#title-results").append( response);
+
+    });
+});
+
+</script>
+
+<div id="title-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
 
 </body>
 </html>
