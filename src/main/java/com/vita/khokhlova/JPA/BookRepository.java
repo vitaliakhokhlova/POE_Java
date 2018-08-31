@@ -54,7 +54,7 @@ public class BookRepository {
     }
 
     public List<Book> getByTitle(String title) {
-        String queryString = "select b from Book b where upper(b.title) LIKE '%" + title.toUpperCase()  + "%'";
+        String queryString = "select b from Book b where upper(b.title) LIKE '%" + title.toUpperCase()  + "%' ORDER BY b.id";
         Query query = em.createQuery(queryString);
         List<Book> bookList = query.getResultList();
         return bookList;

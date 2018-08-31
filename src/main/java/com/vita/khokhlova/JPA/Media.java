@@ -21,18 +21,6 @@ public class Media {
     public Media() {
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public double getNetPrice() {
-        return price * 1.2;
-    }
-
     public int getId() {
         return id;
     }
@@ -48,6 +36,20 @@ public class Media {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public double getNetPrice() {
+        return price * 1.2;
+    }
+
+
 
 //    public Publisher getPublisher() {
 //        return publisher;

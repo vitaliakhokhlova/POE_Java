@@ -30,12 +30,12 @@ public class HelloWorldRest {
         return "Hello "+s;
     }
 
-//    @GET
-//    @Path("book")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public List<Book> getAllBooks(){
-//       return bookRepository.getAll();
-//    }
+    @GET
+    @Path("book")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Book> getAllBooks(){
+       return bookRepository.getAll();
+    }
 
 
 

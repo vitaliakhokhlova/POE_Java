@@ -1,49 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <meta charset="UTF-8">
-    <title>Find book</title>
-</head>
-<body>
-
-<form action="/StartJava/rest/book/id" method="get" id="search_id">
-    Id:
-    <input type="number" name="fId"/>
-    <input type="submit" value="OK"/>
-</form>
-
-
-<div id="server-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
-
-<form action="/StartJava/rest/book/title" method="get" id="search_title">
-    Search by title:
-    <input type="text" name="fTitle"/>
-    <input type="submit" value="OK"/>
-</form>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Price</th>
-        <th>Pages</th>
-        <th>Publisher</th>
-        <th>Authors</th>
-        <th>&nbsp;</th>
-    </tr>
-    </thead>
-        <tbody id="title-results">
-    </tbody>
-</table>
-
-<script>
-    $('#search_id').submit(function(event){
+$('#search_id').submit(function(event){
   event.preventDefault();
   $("#server-results").empty();
   $.getJSON($(this).attr("action"), $(this).serialize(), function(response) {
@@ -89,7 +44,3 @@ function myFunction (id) {
                 type: 'DELETE'
         });
     };
-</script>
-
-</body>
-</html>
