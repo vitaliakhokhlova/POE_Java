@@ -22,14 +22,18 @@
 <script>
 $('#search_id').submit(function(event){
   event.preventDefault();
-  var post_url = $(this).attr("action");
-  var form_data = $(this).serialize();
-  $.getJSON(post_url, form_data, function(response) {
+  $("#server-results").empty();
+  $.getJSON($(this).attr("action"), $(this).serialize(), function(response) {
       $.each(response, function(key, val) {
             $("#server-results").append( key + ": " + val + "<br />");
         });
     });
 });
+
+
+
+
+
 
 </script>
 
@@ -39,21 +43,28 @@ $('#search_id').submit(function(event){
     <input type="submit" value="OK"/>
 </form>
 
+
+<div id="title-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
+
 <script>
 $('#search_title').submit(function(event){
   event.preventDefault();
-  var post_url = $(this).attr("action");
-  var form_data = $(this).serialize();
-  $.get(post_url, form_data, function(response) {
-
-            $("#title-results").append( response);
-
-    });
+  $("#title-results").empty();
+  $.get($(this).attr("action"), $(this).serialize(), function(response) {
+      $.each(response, function( index, value ) {
+           $.each(value, function(key, val) {
+                    $("#title-results").append( key + ": " + val + "<br />");
+                });
+            });
+       });
 });
 
-</script>
 
-<div id="title-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
+
+
+
+
+</script>
 
 </body>
 </html>
