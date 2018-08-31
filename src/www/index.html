@@ -43,8 +43,19 @@ $('#search_id').submit(function(event){
     <input type="submit" value="OK"/>
 </form>
 
-
-<div id="title-results" style="width: 500px; padding: 10px; background-color: #E1E1E1"></div>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Pages</th>
+        <th>Publisher</th>
+    </tr>
+    </thead>
+        <tbody id="title-results">
+    </tbody>
+</table>
 
 <script>
 $('#search_title').submit(function(event){
@@ -52,18 +63,20 @@ $('#search_title').submit(function(event){
   $("#title-results").empty();
   $.get($(this).attr("action"), $(this).serialize(), function(response) {
       $.each(response, function( index, value ) {
-           $.each(value, function(key, val) {
-                    $("#title-results").append( key + ": " + val + "<br />");
-                });
-            });
-       });
+      $("#title-results").append("<tr>"
+      +"<td>" + value["id"] + "</td>"
+      +"<td>" +value["title"]  + "</td>"
+      +"<td>" + value["price"] + "</td>"
+       +"<td>" + value["nbpage"]);
+       if(value["publisher"]["name"] != undefined){
+            $("#title-results").append(value["publisher"]["name"]  + "</td></tr>");
+            }
+       else{
+            $("#title-results").append("<td></td></tr>");
+            }
+      });
+  });
 });
-
-
-
-
-
-
 </script>
 
 </body>
